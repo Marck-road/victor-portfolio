@@ -1,9 +1,9 @@
-import React from 'react';
 import { motion } from 'framer-motion';
+import React from 'react';
 
 const Certificates: React.FC = () => {
-  const certsLeft = ["Airtable Builder Certification", "Social Media Marketing", "Zapier AI Mastery", "Git & GitHub"];
-  const certsRight = ["Glide Level 1", "Glide Level 2", "Make - Basic", "Make - Intermediate"];
+  const certsLeft = ["Airtable Builder Certification", "Social Media Marketing", "Zapier AI Mastery", "Git & GitHub", "Softr Fundamentals Certification"];
+  const certsRight = ["Glide Level 1", "Glide Level 2", "Make - Basic", "Make - Intermediate", ];
 
   return (
     <section className="py-24 bg-body" id="certificates">

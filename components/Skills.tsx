@@ -1,5 +1,5 @@
+import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 interface Project {
   title: string;
@@ -23,68 +23,197 @@ const Skills: React.FC = () => {
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
 
   const mockProjects: Record<string, Project[]> = {
-    'Automation': [
+    'Airtable': [
+      {
+        title: "Landing Page", 
+        description: "A responsive landing page built with Airtable and Glide.", 
+        image: "/img/at-landing.jpg",
+        tags: ["Airtable"]
+      },
+      {
+        title: "Internal Forms", 
+        description: "Built internal forms and workflows in Airtable for streamlined data collection.", 
+        image: "/img/at-internalforms.jpg",
+        tags: ["Airtable"]
+      },
+      {
+        title: "Forms", 
+        description: "Created user-facing forms in Airtable to capture structured data efficiently.", 
+        image: "/img/at-forms.jpg",
+        tags: ["Airtable"]
+      },
+      {
+        title: "Forms - Continuation", 
+        description: "Extended Airtable forms with automation for improved data handling.", 
+        image: "/img/at-forms2.jpg",
+        tags: ["Airtable"]
+      },
+      {
+        title: "Interface", 
+        description: "Designed Airtable interfaces to visualize and manage records effectively.", 
+        image: "/img/at-interface.jpg",
+        tags: ["Airtable"]
+      },
+      {
+        title: "Interface - Continuation", 
+        description: "Enhanced Airtable interfaces with custom views and interactive elements.", 
+        image: "/img/at-interface2.jpg",
+        tags: ["Airtable"]
+      }
+    ],
+    'Glide': [
       { 
-        title: "E-Commerce Workflow", 
-        description: "Automated category assignment for 10,000+ products using AI and webhooks.", 
-        image: "https://picsum.photos/seed/auto1/600/400",
+        title: "Dashboard", 
+        description: "Dashboard of a product sourcing e-commerce.", 
+        image: "/img/glide - dashboard.png",
+        tags: ["Glide"]
+      },
+      { 
+        title: "E-commerce Product Categories", 
+        description: "A catalogue of the different categories of this e-commerce.", 
+        image: "/img/glide - E-Commerce Product Categories.png",
+        tags: ["Glide"]
+      },
+      { 
+        title: "Product Information Page", 
+        description: "Displays product details and specifications.", 
+        image: "/img/glide - Women T-Shirt.png",
+        tags: ["Glide"]
+      }
+    ],
+    'Make': [
+      {
+        title: "Blog Post Writer Automation (Sphere Resources)", 
+        description: "Built an automated blog writing workflow in Make using webhooks to speed up content production and reduce manual effort.", 
+        image: "/img/make-1-tag-wh.jpg",
+        tags: ["Make, Webhooks"]
+      },
+      {
+        title: "Product Category Generator", 
+        description: "Generates copywriting and uploads to Wordpress", 
+        image: "/img/make-2.jpg",
+        tags: ["Make, Webhooks, Wordpress"]
+      },
+      {
+        title: "Content Architect - Promote My Property (Real Estate)", 
+        description: "Automated real estate content workflows in Make to boost property visibility.", 
+        image: "/img/make-3.jpg",
+        tags: ["Make"]
+      },
+      {
+        title: "Content Architect - Educational Post", 
+        description: "Automated content creation and creates posts in Facebook and Instagram", 
+        image: "/img/make-4.jpg",
+        tags: ["Make"]
+      },
+      {
+        title: "AI Content Engine Airtable Record", 
+          description: "Automated Airtable record creation for AI-generated content using Make.",
+        image: "/img/make-5.jpg",
+        tags: ["Make, Webhooks"]
+      },
+      {
+        title: "Content Automation System", 
+        description: "Automated content creation and publishing workflows in Make.", 
+        image: "/img/make-6.jpg",
+        tags: ["Make"]
+      },
+      {
+        title: "AI Content Multi-Platform Adaptation", 
+        description: "Automated adaptation and distribution of AI content across multiple platforms using Make.", 
+        image: "/img/make-7.jpg",
+        tags: ["Make, Webhooks"]
+      },
+      {
+        title: "Content Architect - Open House Post (Real Estate)", 
+        description: "Automated real estate content workflows in Make to boost property visibility in Facebook and Instagram.", 
+        image: "/img/make-8.jpg",
+        tags: ["Make"]
+      },
+      {
+        title: "Project Progress Report Automation", 
+        description: "Automated project progress reporting workflows in Make.", 
+        image: "/img/make-9.jpg",
+        tags: ["Make"]
+      },
+    ],
+    'PowerAutomate': [
+      { 
+        title: "Quarter Employee Review Reminder", 
+        description: "Automated email reminders for quarterly employee reviews using Power Automate.", 
+        image: "img/pa-1.jpg",
+        tags: ["Power Automate"]
+      },
+      { 
+        title: "Sphere Services | Sam Reminder for Salary Automation", 
+        description: "Automated salary reminders for Sphere Services employees using Power Automate.", 
+        image: "img/pa-2.jpg",
+        tags: ["Power Automate"]
+      },
+      { 
+        title: "Google File Ownership Transfer Reminder", 
+        description: "Automated reminders for Google file ownership transfers using Power Automate.", 
+        image: "img/pa-3.jpg",
+        tags: ["Power Automate"]
+      }
+    ],
+    'Wordpress': [
+      { 
+        title: "About Us Page", 
+        description: "A professionally designed About Us page for a corporate website.", 
+        image: "img/wp-about us.jpg",
         tags: ["Zapier", "Airtable"]
       },
       { 
-        title: "Client Onboarding", 
-        description: "Streamlined onboarding process reducing manual work by 70%.", 
-        image: "https://picsum.photos/seed/auto2/600/400",
+        title: "Blogs", 
+        description: "A series of blog posts on various topics related to the industry.", 
+        image: "img/wp-blogs.jpg",
+        tags: ["Make", "Slack"]
+      },
+      { 
+        title: "Item List", 
+        description: "A comprehensive list of items available for purchase on the website.", 
+        image: "img/wp-item list.jpg",
+        tags: ["Zapier", "Airtable"]
+      },
+      { 
+        title: "Services Offered", 
+        description: "A comprehensive list of services offered by the company.", 
+        image: "img/wp-Services offered.jpg",
         tags: ["Make", "Slack"]
       }
     ],
-    'Dev': [
-      { 
-        title: "Custom CRM Dashboard", 
-        description: "Built a responsive dashboard with HTML/CSS and real-time data integration.", 
-        image: "https://picsum.photos/seed/dev1/600/400",
-        tags: ["HTML", "CSS", "UI/UX"]
-      }
-    ],
-    'Platforms': [
-      { 
-        title: "Glide Real Estate App", 
-        description: "Mobile-first application for property management and agent tracking.", 
-        image: "https://picsum.photos/seed/plat1/600/400",
-        tags: ["Glide", "Google Sheets"]
-      }
-    ]
   };
 
   const skillCategories: SkillCategory[] = [
     {
       title: "Automation and Tools",
       skills: [
-        { name: "Zapier", icon: "ri-flashlight-line", projects: mockProjects['Automation'] },
-        { name: "Make", icon: "ri-settings-4-line", projects: mockProjects['Automation'] },
-        { name: "Power Automate", icon: "ri-rocket-line", projects: mockProjects['Automation'] },
-        { name: "N8N", icon: "ri-nodes-fill", projects: mockProjects['Automation'] },
-        { name: "Webhooks", icon: "ri-webhook-line", projects: mockProjects['Automation'] },
+        { name: "Zapier", icon: "ri-flashlight-line", projects: [] },
+        { name: "Make", icon: "ri-settings-4-line", projects: mockProjects['Make'] },
+        { name: "Power Automate", icon: "ri-rocket-line", projects: mockProjects['PowerAutomate'] },
+        { name: "N8N", icon: "ri-nodes-fill", projects: [] },
       ]
     },
     {
       title: "Platforms & CRMS",
       skills: [
-        { name: "GoHighLevel", icon: "ri-building-line", projects: mockProjects['Platforms'] },
-        { name: "Glide", icon: "ri-smartphone-line", projects: mockProjects['Platforms'] },
-        { name: "Wordpress", icon: "ri-wordpress-line", projects: mockProjects['Platforms'] },
-        { name: "Airtable", icon: "ri-table-line", projects: mockProjects['Platforms'] },
-        { name: "Jira", icon: "ri-trello-line", projects: mockProjects['Platforms'] },
-        { name: "Softr", icon: "ri-window-line", projects: mockProjects['Platforms'] },
+        { name: "GoHighLevel", icon: "ri-building-line", projects: [] },
+        { name: "Glide", icon: "ri-smartphone-line", projects: mockProjects['Glide'] },
+        { name: "Wordpress", icon: "ri-wordpress-line", projects: mockProjects['Wordpress'] },
+        { name: "Airtable", icon: "ri-table-line", projects: mockProjects['Airtable'] },
+        { name: "Jira", icon: "ri-trello-line", projects: [] },
+        { name: "Softr", icon: "ri-window-line", projects: [] },
       ]
     },
     {
       title: "Development & Design",
       skills: [
-        { name: "HTML", icon: "ri-html5-line", projects: mockProjects['Dev'] },
-        { name: "CSS", icon: "ri-css3-line", projects: mockProjects['Dev'] },
-        { name: "Figma", icon: "ri-figma-line", projects: mockProjects['Dev'] },
-        { name: "UI/UX", icon: "ri-layout-line", projects: mockProjects['Dev'] },
-        { name: "C Programming", icon: "ri-terminal-box-line", projects: mockProjects['Dev'] },
+        { name: "HTML", icon: "ri-html5-line", projects: [] },
+        { name: "CSS", icon: "ri-css3-line", projects: [] },
+        { name: "Figma", icon: "ri-figma-line", projects: [] },
+        { name: "UI/UX", icon: "ri-layout-line", projects: [] },
+        { name: "C Programming", icon: "ri-terminal-box-line", projects: [] },
       ]
     },
     {

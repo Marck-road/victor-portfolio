@@ -15,7 +15,7 @@ const About: React.FC = () => {
         >
           <div className="absolute -inset-8 bg-first/20 rounded-full blur-[80px] opacity-30 group-hover:opacity-60 transition-opacity duration-700 animate-pulse"></div>
           <div className="relative rounded-[50px] overflow-hidden border border-white/20 shadow-2xl glass-card p-2">
-            <img src="./components/img/profile-pic-2.jpg" alt="Victor Aguhob" className="rounded-[40px] w-full h-auto" />
+            <img src="../public/img/profile-pic-2.jpg" alt="Victor Aguhob" className="rounded-[40px] w-full h-auto" />
             <div className="absolute inset-0 bg-gradient-to-t from-body/60 to-transparent"></div>
           </div>
           
@@ -41,8 +41,8 @@ const About: React.FC = () => {
           
           <div className="grid grid-cols-2 gap-8 mb-12">
             {[
-              { label: 'Projects Completed', value: '150+', icon: 'ri-award-line' },
-              { label: 'Happy Clients', value: '50+', icon: 'ri-customer-service-2-line' }
+              { label: 'Projects Completed', value: '30+', icon: 'ri-award-line' },
+              { label: 'Happy Clients', value: '10+', icon: 'ri-customer-service-2-line' }
             ].map((stat, i) => (
               <motion.div 
                 key={i}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface HeaderProps {
   activeSection: string;
@@ -10,9 +10,10 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      // Small threshold to avoid immediate transition on subpixel scrolls
+      setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -27,7 +28,13 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-[100] transition-all duration-400 ${isScrolled ? 'blur-header py-4' : 'bg-transparent py-6'}`}>
+    <header 
+      className={`fixed top-0 left-0 w-full z-[100] border-b border-transparent transition-[background-color,border-color,padding,backdrop-filter] duration-500 ease-in-out ${
+        isScrolled 
+          ? 'blur-header py-4' 
+          : 'bg-transparent py-6'
+      }`}
+    >
       <nav className="max-w-[1120px] mx-4 lg:mx-auto flex justify-between items-center">
         <a href="#home" className="text-2xl font-black text-title tracking-tighter">
           V<span className="text-first">A</span>
