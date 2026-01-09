@@ -105,7 +105,7 @@ const Home: React.FC = () => {
                   447.468 508.583 455.391 501.157 459.678L287 583.322C279.574 587.609 270.426 
                   587.609 263 583.322L48.843 459.678C41.4174 455.391 36.843 447.468 36.843 
                   438.894V191.606C36.843 183.032 41.4174 175.109 48.843 170.822L263 47.1782Z"/>
-                  <image id="imageBlob" width="640" height="700" x="-50" y="40" href="../public/img/profile-pic.jpg"/>
+                  <image id="imageBlob" width="640" height="700" x="-50" y="40" href="/img/profile-pic.jpg"/>
                </g>
             </svg>
             
