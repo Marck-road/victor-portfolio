@@ -8,7 +8,6 @@ import Home from './components/Home.tsx';
 import ScrollUp from './components/ScrollUp.tsx';
 import Services from './components/Services.tsx';
 import Skills from './components/Skills.tsx';
-import VideoShowcase from './components/VideoShowcase.tsx';
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -39,7 +38,7 @@ const App: React.FC = () => {
       <main>
         <Home />
         <About />
-        <VideoShowcase />
+        {/* <VideoShowcase /> */}
         <Skills />
         <Services />
         <Certificates />
